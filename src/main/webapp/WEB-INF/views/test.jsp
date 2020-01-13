@@ -9,5 +9,6 @@
 </head>
 <body>
 	test
+	<p>${board}</p> 
 </body>
 </html>
