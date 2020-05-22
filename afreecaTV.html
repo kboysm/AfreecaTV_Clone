@@ -4,13 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./header.css">
     <title>Document</title>
 </head>
 
-<body>
+<body id="listWrap" class="ko_KR">
     <header>
-        <img src="http://afreecatv.com/images/afmain/logo_main.gif" width="210" height="65" title="afreecaTV">
+        <h1 id="logo">
+            <a href="#">
+                <img src="http://afreecatv.com/images/afmain/logo_main.gif" width="210" height="65" title="afreecaTV">
+            </a>
 
+        </h1>
+        <div class="search_area_t">
+            <div class="search_bar">
+                <input type="text" id="headerSearchBar" name="headerSearchBar" autocomplete="off">
+                <button type="button" class="btn_search"></button>
+
+            </div>
+        </div>
+        <div class="unit_area">
+            <button class="btn_studio" id="studioPlayKor" tip="방송하기">
+
+                <span>프릭샷</span>
+
+            </button>
+            <div id="logArea" class="log_area">
+                <span class="join_area">
+                    <button class="btn_more" tip="설정" id="btnMore">
+                        ::before
+                        "설정"
+                        ::after
+                    </button>
+                    <a href="#" class="login">
+                        <span>로그인</span>
+                    </a>
+                </span>
+            </div>
+        </div>
     </header>
 
 
@@ -18,3 +49,60 @@
 </body>
 
 </html>
+<style>
+    /* body */
+    body.ko_KR * {
+        font-family: verdana, appleGothic, sans-serif;
+    }
+
+    #listWrap #header {
+        min-width: 960px;
+        height: 66px;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    body,
+    ul,
+    ol,
+    li,
+    dt,
+    dl,
+    dd,
+    div,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    form,
+    fieldset,
+    blockquote,
+    iframe,
+    input,
+    object,
+    table,
+    tr,
+    th,
+    td,
+    button {
+        margin: 0;
+        padding: 0;
+    }
+
+    div {
+        display: block;
+    }
+
+
+    h1 {
+        display: block;
+        font-size: 2em;
+        margin-block-start: 0.67em;
+        margin-block-end: 0.67em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+    }
+</style>
