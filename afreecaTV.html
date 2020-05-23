@@ -134,16 +134,13 @@
                 </div>
                 <div class="mb-content">
                     <ul class="service-list">
-                        <li class="on" data-service="live">
+                        <li class data-service="live">
                             <h3>
                                 <a class="title-LIVE">
-                                    ::before
                                     LIVE
                                 </a>
-                                <button type="button" class="btn-toggle">
-                                    ::before
+                                <button type="button" class="btn-toggle" onclick="LSM(this)">
                                     서브메뉴 토글
-                                    ::after
                                 </button>
                             </h3>
                             <ul>
@@ -162,7 +159,7 @@
                                     VOD
                                     <em>NEW</em>
                                 </a>
-                                <button type="button" class="btn-toggle">
+                                <button type="button" class="btn-toggle" onclick="LSM(this)">
                                     ::before
                                     서브메뉴 토글
                                     ::after
@@ -181,13 +178,10 @@
                         <li class data-service="fav">
                             <h3>
                                 <a class="title-FAV">
-                                    ::before
                                     MY
                                 </a>
-                                <button type="button" class="btn-toggle">
-                                    ::before
+                                <button type="button" class="btn-toggle" onclick="LSM(this)">
                                     서브메뉴 토글
-                                    ::after
                                 </button>
                             </h3>
                             <ul>
@@ -209,7 +203,6 @@
                     </ul>
                     <div class="download-player">
                         <a class="player_install" id="playerSetupKor">
-                            ::before
                             설치형 플레이어
                         </a>
                     </div>
@@ -218,7 +211,15 @@
         </div>
     </nav>
     <script>
+        function LSM(_this) {
+            let testB = _this.parentNode.parentNode.getAttribute('class')
+            if (testB === 'on') {
+                _this.parentNode.parentNode.setAttribute('class', '')
+            } else {
 
+                _this.parentNode.parentNode.setAttribute('class', 'on')
+            }
+        }
     </script>
     <script type="text/javascript" src="./header.js"></script>
 
@@ -270,6 +271,13 @@
     button {
         margin: 0;
         padding: 0;
+    }
+
+    button {
+        border: 0 none;
+        cursor: pointer;
+        vertical-align: middle;
+        outline: none;
     }
 
     ul,
