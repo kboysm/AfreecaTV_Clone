@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./header.css">
+    <link rel="stylesheet" type="text/css" href="./nav.css">
     <title>Document</title>
 </head>
 
@@ -98,23 +99,23 @@
                         </ul>
                     </div>
                 </div>
-                <button type="button" class="btn_search"></button>
+                <button type="button" class="btn_search" onclick="didNotDevelop()"></button>
             </div>
         </div>
         <div class="unit_area">
-            <button class="btn_studio" id="studioPlayKor" tip="방송하기">
+            <button class="btn_studio" id="studioPlayKor" onclick="didNotDevelop()" tip=" 방송하기">
 
                 <span>프릭샷</span>
 
             </button>
             <div id="logArea" class="log_area">
                 <span class="join_area">
-                    <button class="btn_more" tip="설정" id="btnMore">
+                    <button class="btn_more" onclick="didNotDevelop()" tip="설정" id="btnMore">
                         ::before
                         "설정"
                         ::after
                     </button>
-                    <a href="#" class="login">
+                    <a class="login" onclick="didNotDevelop()">
                         <span>로그인</span>
                     </a>
                 </span>
@@ -122,15 +123,104 @@
         </div>
     </header>
 
+    <nav id="sidedArea">
+        <div class="Left_Navigation_Bar">
+            <div id="LNB-ScrollBox" class="mb-container">
+                <div class="mb-track mb-track-x">
+                    <div class="mb-bar" style="width: 184;left: 0px;"></div>
+                </div>
+                <div class="mb-track mb-track-y">
+                    <div class="mb-bar" style="height: 836;"></div>
+                </div>
+                <div class="mb-content">
+                    <ul class="service-list">
+                        <li class="on" data-service="live">
+                            <h3>
+                                <a class="title-LIVE">
+                                    ::before
+                                    LIVE
+                                </a>
+                                <button type="button" class="btn-toggle">
+                                    ::before
+                                    서브메뉴 토글
+                                    ::after
+                                </button>
+                            </h3>
+                            <ul>
+                                <li class id="all" name="전체"><a>전체</a></li>
+                                <li class="on" id="game" name="게임"><a>게임</a></li>
+                                <li><a>스포츠</a></li>
+                                <li><a>보이는라디오</a></li>
+                                <li><a>신인BJ</a></li>
+                                <li><a>모바일</a></li>
+                            </ul>
+                        </li>
+                        <li class data-service="vod">
+                            <h3>
+                                <a class="title-VOD">
+                                    ::before
+                                    VOD
+                                    <em>NEW</em>
+                                </a>
+                                <button type="button" class="btn-toggle">
+                                    ::before
+                                    서브메뉴 토글
+                                    ::after
+                                </button>
+                            </h3>
+                            <ul>
+                                <li class id="favorite_clip_vod" name="즐겨찾기"><a>즐겨찾기</a></li>
+                                <li class id="vod_all" name="추천"><a>추천</a></li>
+                                <li class id="popular_vod" name="인기 VOD"><a>인기 VOD</a></li>
+                                <li class=" new" id="tvclip_vod" name="TV클립"><a>TV클립</a></li>
+                                <li class id="later_vod" name="기록"><a>기록</a></li>
+                                <li class id="category_vod" name="카테고리"><a>카테고리</a></li>
+                            </ul>
+
+                        </li>
+                        <li class data-service="fav">
+                            <h3>
+                                <a class="title-FAV">
+                                    ::before
+                                    MY
+                                </a>
+                                <button type="button" class="btn-toggle">
+                                    ::before
+                                    서브메뉴 토글
+                                    ::after
+                                </button>
+                            </h3>
+                            <ul>
+                                <li class id="favorite" name="즐겨찾기한 BJ"><a>즐겨찾기한 BJ</a></li>
+                                <li class id="subsBJ" name="구독한 BJ"><a>구독한 BJ</a></li>
+                                <li class id="fanBJ" name="팬가입한 BJ"><a>팬가입한 BJ</a></li>
+                                <li class=" new" id="feed" name="피드"><a>피드</a></li>
+                                <li class id="lately" name="최근 본 방송"><a>최근 본 방송</a></li>
+                            </ul>
+                        </li>
+                        <li class="side-menu">
+                            <ul>
+                                <li id="ranking"><a>랭킹</a></li>
+                                <li id="comm"><a>소통센터</a></li>
+                                <li id="cs"><a>고객센터</a></li>
+                                <li id="event"><a>이벤트</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="download-player">
+                        <a class="player_install" id="playerSetupKor">
+                            ::before
+                            설치형 플레이어
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
     <script>
-        function searchBarFoucus() {
-            let testtest = document.getElementsByClassName("search_box")[0].style.display = "block";
-            console.log(testtest)
-        }
-        function searchBarBlur() {
-            document.getElementsByClassName("search_box")[0].style.display = "none";
-        }
+
     </script>
+    <script type="text/javascript" src="./header.js"></script>
 
 </body>
 

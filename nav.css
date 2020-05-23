@@ -1,0 +1,65 @@
+.Left_Navigation_Bar{
+    position: fixed;
+    top:67px;
+    bottom: 0;
+    left: 0;
+    background: #f8fafc;
+    width: 209px;
+    border-right:1px solid #e5ebf2;
+    z-index:100;
+}
+#LNB-ScrollBox{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.mb-container{
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.mb-track {
+    transition: opacity 250ms;
+}
+.mb-track-x {
+    left: 5px;
+    bottom: 5px;
+    width: calc(100% - 10px);
+    height: 10px;
+    opacity: 0;
+}
+.mb-bar, .mb-button, .mb-buttons, .mb-track {
+    position: absolute;
+}
+.mb-bar, .mb-track {
+    border-radius: 0;
+    position: absolute;
+}
+.mb-track-x .mb-bar {
+    top: 0;
+    left: 0;
+    min-width: 10px;
+    height: 100%;
+}
+.mb-bar {
+    background-color: #eee;
+    z-index: 10;
+    transform-style: preserve-3d;
+}
+.mb-track-y {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 8px;
+    height: calc(100% - 0);
+    opacity: 0;
+}
+.mb-track-y .mb-bar {
+    top: 0;
+    right: 0;
+    width: 100%;
+    min-height: 10px;
+}
