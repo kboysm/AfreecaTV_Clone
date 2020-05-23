@@ -31,3 +31,11 @@ css는 같은 속성을 여러 번 정의했을 때,  나중에 설정한 값이
 처음에는 자바스크립트로 제어하려고 했으나 구글링 결과 :before :after는 자바스크립트로 제어하기 힘들다고 함 .
 
 결국 ~~~:before 옵션 아래 ~~~:hover:before를 만들어서 opacity를 수정하게 하여 문제를 해결함
+
+### 작업 과정 중간 캡처
+
+헤더 완성
+![아프리카 헤더](https://user-images.githubusercontent.com/51103479/82740212-a3a40980-9d81-11ea-941d-21b3062c33eb.JPG)
+
+나브바 완성
+![나브바](https://user-images.githubusercontent.com/51103479/82740214-a4d53680-9d81-11ea-8d30-d5cc3cad87d8.JPG)
