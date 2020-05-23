@@ -139,17 +139,17 @@
                                 <a class="title-LIVE">
                                     LIVE
                                 </a>
-                                <button type="button" class="btn-toggle" onclick="LSM(this)">
+                                <button type="button" class="btn-toggle" onclick="navToggleButton(this)">
                                     서브메뉴 토글
                                 </button>
                             </h3>
                             <ul>
-                                <li class id="all" name="전체"><a>전체</a></li>
-                                <li class="on" id="game" name="게임"><a>게임</a></li>
-                                <li><a>스포츠</a></li>
-                                <li><a>보이는라디오</a></li>
-                                <li><a>신인BJ</a></li>
-                                <li><a>모바일</a></li>
+                                <li class id="all" name="전체" onclick="selectedMenu(this)"><a>전체</a></li>
+                                <li id="game" name="게임" onclick="selectedMenu(this)"><a>게임</a></li>
+                                <li onclick="selectedMenu(this)"><a>스포츠</a></li>
+                                <li onclick="selectedMenu(this)"><a>보이는라디오</a></li>
+                                <li onclick="selectedMenu(this)"><a>신인BJ</a></li>
+                                <li onclick="selectedMenu(this)"><a>모바일</a></li>
                             </ul>
                         </li>
                         <li class data-service="vod">
@@ -211,7 +211,17 @@
         </div>
     </nav>
     <script>
-        function LSM(_this) {
+        let testB;
+
+        function selectedMenu(_this) {
+            if (testB !== undefined) {
+                testB.setAttribute('class', '')
+            }
+            _this.setAttribute('class', ' on')
+            testB = _this
+        }
+
+        function navToggleButton(_this) {
             let testB = _this.parentNode.parentNode.getAttribute('class')
             if (testB === 'on') {
                 _this.parentNode.parentNode.setAttribute('class', '')

@@ -160,3 +160,7 @@
 #LNB-ScrollBox .service-list>li.on[data-service=live] {
     max-height: 1000px;
 }
+#LNB-ScrollBox .service-list>li ul li.on a {
+    color: #386cff;
+    font-family: "NGB";
+}
