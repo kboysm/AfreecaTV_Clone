@@ -155,23 +155,24 @@
                         <li class data-service="vod">
                             <h3>
                                 <a class="title-VOD">
-                                    ::before
                                     VOD
                                     <em>NEW</em>
                                 </a>
-                                <button type="button" class="btn-toggle" onclick="LSM(this)">
+                                <button type="button" class="btn-toggle" onclick="navToggleButton(this)">
                                     ::before
                                     서브메뉴 토글
                                     ::after
                                 </button>
                             </h3>
                             <ul>
-                                <li class id="favorite_clip_vod" name="즐겨찾기"><a>즐겨찾기</a></li>
-                                <li class id="vod_all" name="추천"><a>추천</a></li>
-                                <li class id="popular_vod" name="인기 VOD"><a>인기 VOD</a></li>
-                                <li class=" new" id="tvclip_vod" name="TV클립"><a>TV클립</a></li>
-                                <li class id="later_vod" name="기록"><a>기록</a></li>
-                                <li class id="category_vod" name="카테고리"><a>카테고리</a></li>
+                                <li class id="favorite_clip_vod" name="즐겨찾기" onclick="selectedMenu(this)"><a>즐겨찾기</a>
+                                </li>
+                                <li class id="vod_all" name="추천" onclick="selectedMenu(this)"><a>추천</a></li>
+                                <li class id="popular_vod" name="인기 VOD" onclick="selectedMenu(this)"><a>인기 VOD</a></li>
+                                <li class=" new" id="tvclip_vod" name="TV클립" onclick="selectedMenu(this)"><a>TV클립</a>
+                                </li>
+                                <li class id="later_vod" name="기록" onclick="selectedMenu(this)"><a>기록</a></li>
+                                <li class id="category_vod" name="카테고리" onclick="selectedMenu(this)"><a>카테고리</a></li>
                             </ul>
 
                         </li>
@@ -180,16 +181,17 @@
                                 <a class="title-FAV">
                                     MY
                                 </a>
-                                <button type="button" class="btn-toggle" onclick="LSM(this)">
+                                <button type="button" class="btn-toggle" onclick="navToggleButton(this)">
                                     서브메뉴 토글
                                 </button>
                             </h3>
                             <ul>
-                                <li class id="favorite" name="즐겨찾기한 BJ"><a>즐겨찾기한 BJ</a></li>
-                                <li class id="subsBJ" name="구독한 BJ"><a>구독한 BJ</a></li>
-                                <li class id="fanBJ" name="팬가입한 BJ"><a>팬가입한 BJ</a></li>
-                                <li class=" new" id="feed" name="피드"><a>피드</a></li>
-                                <li class id="lately" name="최근 본 방송"><a>최근 본 방송</a></li>
+                                <li class id="favorite" name="즐겨찾기한 BJ" onclick="selectedMenu(this)"><a>즐겨찾기한 BJ</a>
+                                </li>
+                                <li class id="subsBJ" name="구독한 BJ" onclick="selectedMenu(this)"><a>구독한 BJ</a></li>
+                                <li class id="fanBJ" name="팬가입한 BJ" onclick="selectedMenu(this)"><a>팬가입한 BJ</a></li>
+                                <li class=" new" id="feed" name="피드" onclick="selectedMenu(this)"><a>피드</a></li>
+                                <li class id="lately" name="최근 본 방송" onclick="selectedMenu(this)"><a>최근 본 방송</a></li>
                             </ul>
                         </li>
                         <li class="side-menu">
@@ -211,23 +213,31 @@
         </div>
     </nav>
     <script>
-        let testB;
+        let navUlSelectedLi;
+        let navUlLiSelectedMenu;
 
         function selectedMenu(_this) {
-            if (testB !== undefined) {
-                testB.setAttribute('class', '')
+            if (navUlLiSelectedMenu !== undefined) {
+                navUlLiSelectedMenu.setAttribute('class', '')
             }
             _this.setAttribute('class', ' on')
-            testB = _this
+            navUlLiSelectedMenu = _this
         }
 
         function navToggleButton(_this) {
-            let testB = _this.parentNode.parentNode.getAttribute('class')
-            if (testB === 'on') {
-                _this.parentNode.parentNode.setAttribute('class', '')
-            } else {
-
+            if (navUlSelectedLi && navUlSelectedLi !== _this.parentNode.parentNode) {
+                navUlSelectedLi.setAttribute('class', ''); navUlSelectedLi = undefined
                 _this.parentNode.parentNode.setAttribute('class', 'on')
+            }
+            if (navUlSelectedLi) { navUlSelectedLi.setAttribute('class', ''); navUlSelectedLi = undefined }
+
+            // let testB = _this.parentNode.parentNode.getAttribute('class')
+            // if (testB === 'on') {
+            //     _this.parentNode.parentNode.setAttribute('class', '')
+            // } 
+            else {
+                _this.parentNode.parentNode.setAttribute('class', 'on')
+                navUlSelectedLi = _this.parentNode.parentNode;
             }
         }
     </script>
@@ -252,6 +262,9 @@
         font-family: verdana, appleGothic, sans-serif;
     }
 
+    em {
+        font-style: normal;
+    }
 
     body,
     ul,
