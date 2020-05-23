@@ -18,9 +18,87 @@
         </h1>
         <div class="search_area_t">
             <div class="search_bar">
-                <input type="text" id="headerSearchBar" name="headerSearchBar" autocomplete="off">
-                <button type="button" class="btn_search"></button>
+                <input type="text" id="szKeyword" name="szKeyword" autocomplete="off" onblur="searchBarBlur()"
+                    onfocus="searchBarFoucus()">
 
+                <div class="search_box" style="display: none;">
+                    <div class="inner_area">
+                        <h3>실시간 인기 검색어</h3>
+                        <ul class="list">
+                            <li>
+                                <a href="javascript:;" data="LSM1">
+                                    <em class="num">1</em>
+                                    LSM1
+                                    <span class="rank up"><em></em>9</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" data="LSM2">
+                                    <em class="num">2</em>
+                                    LSM2
+                                    <span class="rank up"><em></em>8</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" data="LSM3">
+                                    <em class="num">3</em>
+                                    LSM3
+                                    <span class="rank up"><em></em>6</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" data="LSM4">
+                                    <em class="num">4</em>
+                                    LSM4
+                                    <span class="rank up"><em></em>5</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" data="LSM5">
+                                    <em class="num">5</em>
+                                    LSM5
+                                    <span class="rank up"><em></em>4</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" data="LSM6">
+                                    <em class="num">6</em>
+                                    LSM6
+                                    <span class="rank up"><em></em>2</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" data="LSM7">
+                                    <em class="num">7</em>
+                                    LSM7
+                                    <span class="rank up"><em></em>3</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" data="LSM8">
+                                    <em class="num">8</em>
+                                    LSM8
+                                    <span class="rank up"><em></em>1</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" data="LSM9">
+                                    <em class="num">9</em>
+                                    LSM9
+                                    <span class="rank up"><em></em>7</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" data="LSM10">
+                                    <em class="num">10</em>
+                                    LSM10
+                                    <span class="rank up"><em></em>5</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <button type="button" class="btn_search"></button>
             </div>
         </div>
         <div class="unit_area">
@@ -44,22 +122,35 @@
         </div>
     </header>
 
-
+    <script>
+        function searchBarFoucus() {
+            let testtest = document.getElementsByClassName("search_box")[0].style.display = "block";
+            console.log(testtest)
+        }
+        function searchBarBlur() {
+            document.getElementsByClassName("search_box")[0].style.display = "none";
+        }
+    </script>
 
 </body>
 
 </html>
 <style>
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
     /* body */
     body.ko_KR * {
         font-family: verdana, appleGothic, sans-serif;
     }
 
-    #listWrap #header {
-        min-width: 960px;
-        height: 66px;
-        border-bottom: 1px solid #e5e5e5;
-    }
 
     body,
     ul,
@@ -91,10 +182,24 @@
         padding: 0;
     }
 
-    div {
-        display: block;
+    ul,
+    ol,
+    li {
+        list-style: none;
     }
 
+    ul {
+        list-style-type: disc;
+    }
+
+    a {
+        cursor: pointer;
+    }
+
+    li {
+        display: list-item;
+        text-align: -webkit-match-parent;
+    }
 
     h1 {
         display: block;
@@ -104,5 +209,11 @@
         margin-inline-start: 0px;
         margin-inline-end: 0px;
         font-weight: bold;
+    }
+
+    input {
+        font-family: Dotum, "돋움", verdana, sans-serif;
+        font-size: 12px;
+        outline: none;
     }
 </style>

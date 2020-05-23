@@ -1,4 +1,9 @@
 
+    #listWrap header {
+        min-width: 960px;
+        height: 66px;
+        border-bottom: 1px solid #e5e5e5;
+    }
     header {
         position: fixed;
         top: 0;
@@ -144,4 +149,85 @@
     }
     a:link, a:visited, a:active {
         text-decoration: none;
+    }
+
+    .search_area_t .search_box{
+
+        padding-top: 29px;
+        background-color: #fff;
+    }
+    .search_area_t .search_box .inner_area{
+        border-top: 1px solid #e5e5e5;
+        
+    }
+    .search_area_t .search_box h3 {
+        padding: 8px 0 0 8px;
+        font-size: 12px;
+        color: #444;
+    }
+    .search_area_t .search_box .list {
+        overflow: hidden;
+        width: 100%;
+        padding: 3px 0 3px;
+    }
+    .search_area_t .search_box .list li{
+        float: left;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        height: 24px;
+        line-height: 24px;
+        vertical-align: top;
+        zoom: 1;
+        font-size: 12px;
+    }
+    .search_area_t .search_box .list li a {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        height: 16px;
+        text-decoration: none;
+        color: #444;
+        line-height: 150%;
+        padding: 4px 48px 4px 9px;
+        zoom: 1;
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+    .search_area_t .search_box .list li a .num{
+        position: relative;
+        top:-1px;
+        display: inline-block;
+        width: 18px;
+        vertical-align: middle;
+        text-align: center;
+        color: #444;
+        font-size: 12px;
+        font-weight: bold;
+        margin: 0 6px 0 0;
+        -webkit-font-smoothing:antialiased;
+    }
+    .search_area_t .search_box .list li a .up, .search_area_t .search_box .list li a .down, .search_area_t .search_box .list li a .new {
+        text-align: left;
+    }
+    .search_area_t .search_box .list li a .rank {
+        position: absolute;
+        top: 4px;
+        right: 6px;
+        width: 34px;
+        text-align: center;
+        font-size: 11px;
+        color: #444;
+    }
+    .search_area_t .search_box .list li a .up em {
+        background-position: -516px 0;
+    }
+    
+    .search_area_t .search_box .list li a .rank em {
+        display: inline-block;
+        width: 7px;
+        height: 8px;
+        margin: 0 7px 2px 0;
+        vertical-align: middle;
+        background: url("http://res.afreecatv.com/images/afmain/img_main.png") -97px -248px no-repeat;
     }
