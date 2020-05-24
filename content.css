@@ -1,0 +1,15 @@
+#listWrap #container{
+    padding: 67px 0 108px;
+}
+#container{
+    clear:both;
+    margin:0 auto;
+    padding: 54px 0 83px;
+}
+.banner_area, .global_banner{
+    position: relative;
+    overflow: hidden;
+    height: 100px;
+    padding: 0 40px;
+    border-bottom: 1px solid #f0f0f0;
+}
