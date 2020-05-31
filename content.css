@@ -13,3 +13,25 @@
     padding: 0 40px;
     border-bottom: 1px solid #f0f0f0;
 }
+.blind {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    text-indent: -9999px;
+    top:-9999px;
+    font-size: 0;
+    width: 1px;
+    height: 1px;
+    left: -9999px;
+    line-height: 0;
+}
+.banner_area .line {
+    position: absolute;
+    top: 0;
+    left: 40px;
+    z-index: 10;
+    height: 100px;
+    width: 1px;
+    display: block;
+    background: #fff;
+}
