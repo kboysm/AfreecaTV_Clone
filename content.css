@@ -35,3 +35,52 @@
     display: block;
     background: #fff;
 }
+/* 버튼 */
+
+.banner_area .btn_prev, .global_banner .btn_prev{
+    position: absolute;
+    top:0;
+    left:0;
+    display: block;
+    width: 42px;
+    height: 100px;
+    background: #ffff;
+    z-index:5;
+}
+.banner_area .btn_prev span, .global_banner .btn_prev span{
+    position: absolute;
+    top:40px;
+    left:15px;
+    display: block;
+    width: 11px;
+    height: 21px;
+    text-indent: -9999px;
+    background: url("http://res.afreecatv.com/images/afmain/img_main.png") no-repeat -543px -54px;
+}
+.banner_area .btn_next, .global_banner .btn_next{
+    position: absolute;
+    top:0;
+    right:0;
+    display: block;
+    width: 42px;
+    height: 100px;
+    background: #ffff;
+    z-index:5;
+}
+.banner_area .btn_next span, .global_banner .btn_next span{
+    position: absolute;
+    top:40px;
+    left:15px;
+    display: block;
+    width: 11px;
+    height: 21px;
+    text-indent: -9999px;
+    background: url("http://res.afreecatv.com/images/afmain/img_main.png") no-repeat -555px -54px;
+}
+/* 버튼 */
+.bx-viewport{
+    z-index:5;
+}
+.banner_area .bx-controls , .global_banner .bx-controls {
+    display: none;
+}
