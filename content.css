@@ -84,3 +84,48 @@
 .banner_area .bx-controls , .global_banner .bx-controls {
     display: none;
 }
+.banner_area li, .global_banner li {
+    float: left;
+    width: 33.3%;
+    border-left:1px solid #f0f0f0;
+    text-align: center;
+}
+
+.bannerslide .bnr_conts {
+    font-size: 0;
+    text-align: center;
+}
+.banner_area li a, .global_banner li a {
+    display: block;
+}
+.bannerslide .bnr_conts .bnr_img, .bannerslide .bnr_conts .bnr_text {
+    display: inline-block;
+    vertical-align: top;
+}
+.bannerslide .bnr_conts .bnr_text .date {
+    color: #999;
+    font-size: 12px;
+    letter-spacing: -1px;
+}
+.bannerslide .bnr_conts .bnr_text {
+    padding-top: 11px;
+    font-size: 0;
+    text-align: left;
+}
+.bannerslide .bnr_conts .bnr_img, .bannerslide .bnr_conts .bnr_text {
+    display: inline-block;
+    vertical-align: top;
+}
+.bannerslide .bnr_conts .bnr_img img {
+    display: block;
+}
+.banner_area li img, .global_banner li img {
+    vertical-align: top;
+    height: 100px;
+}
+@media screen and (max-width: 1340px){
+    .bannerslide .bnr_conts .bnr_text {
+
+        width: 135px;
+    }
+}
