@@ -39,3 +39,6 @@ css는 같은 속성을 여러 번 정의했을 때,  나중에 설정한 값이
 
 나브바 완성
 ![나브바](https://user-images.githubusercontent.com/51103479/82740214-a4d53680-9d81-11ea-8d30-d5cc3cad87d8.JPG)
+
+배너 완성
+![배너완성](https://user-images.githubusercontent.com/51103479/83530542-d2ab3f80-a526-11ea-9bed-d6e6eae84e43.JPG)
