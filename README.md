@@ -1,6 +1,6 @@
 # AfreecaTV Clone 만들기
 
-프로젝트를 만드는 이유 : html ,css,javascript만으로 웹사이트를 나 혼자서 클론코딩 할 수 있는지 테스트하기 위해서
+프로젝트를 만드는 이유 : html ,css,javascript만으로 웹사이트를 나 혼자서 메 클론코딩 할 수 있는지 테스트하기 위해서
 
 프로젝트 계획 : 
 
