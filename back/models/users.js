@@ -5,8 +5,8 @@ mongoose.set('useCreateIndex', true)
 const userSchema = new mongoose.Schema({
     name: { type: String, default: '' },
     age: { type: Number, default: 1 },
-    id= { type: String, default: '', unique: true, index: true },
-    pwd= { type: String, default: '' },
+    id: { type: String, default: '', unique: true, index: true },
+    pwd: { type: String, default: '' },
     lv: { type: Number, default: 2 },
     img: { type: String, default: '' }
 })

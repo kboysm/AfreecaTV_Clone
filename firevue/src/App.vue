@@ -1,12 +1,23 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+    <!-- <img :src="require('@/assets/insect.jpg')" /> -->
+    <router-view />
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      backInsect: ""
+    }
+  }
+}
+</script>
+
 
 <style>
 #app {
@@ -15,8 +26,13 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
+  background: url("assets/insect.jpg") no-repeat;
 
+  /* background-size: 150px; */
+}
+body {
+  margin: 0;
+}
 #nav {
   padding: 30px;
 }
