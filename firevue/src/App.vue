@@ -27,6 +27,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   background: url("assets/insect.jpg") no-repeat;
+  background-position: center;
 
   /* background-size: 150px; */
 }

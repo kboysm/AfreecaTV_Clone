@@ -11,6 +11,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: require();
 }
 #dataForm {
   background: #fff;
@@ -18,6 +19,7 @@
   width: 500px;
   height: 75vh;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 768px) {
