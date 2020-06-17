@@ -4,7 +4,8 @@
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>|
       <router-link to="/register">회원가입</router-link>|
-      <router-link to="/login">로그인</router-link>
+      <router-link to="/login">로그인</router-link>|
+      <router-link to="/mypage">마이페이지</router-link>
     </div>
     <!-- <img :src="require('@/assets/insect.jpg')" /> -->
     <transition name="custom-classes-transition" leave-active-class="animated bounceOutRight">
@@ -17,9 +18,9 @@ export default {
   data() {
     return {
       backInsect: ""
-    }
+    };
   }
-}
+};
 </script>
 
 
@@ -34,6 +35,7 @@ export default {
   background-position: center;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
   /* background-size: 150px; */
 }
 body {
