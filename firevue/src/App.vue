@@ -5,7 +5,13 @@
       <router-link to="/about">About</router-link>
     </div>
     <!-- <img :src="require('@/assets/insect.jpg')" /> -->
-    <router-view />
+    <transition
+      name="custom-classes-transition"
+      enter-active-class="animated tada"
+      leave-active-class="animated bounceOutRight"
+    >
+      <router-view />
+    </transition>
   </div>
 </template>
 <script>
@@ -28,7 +34,8 @@ export default {
   color: #2c3e50;
   background: url("assets/insect.jpg") no-repeat;
   background-position: center;
-
+  width: 100vw;
+  height: 100vh;
   /* background-size: 150px; */
 }
 body {
