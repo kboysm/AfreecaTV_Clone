@@ -1,15 +1,8 @@
 <template>
-  <div class="home">
-    <Register />
-  </div>
+  <div class="home">Home</div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Register from "./register/Register"
-export default {
-  components: {
-    Register
-  }
-}
+export default {}
 </script>

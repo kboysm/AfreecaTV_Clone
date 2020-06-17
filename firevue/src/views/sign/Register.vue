@@ -17,7 +17,7 @@
         <ValidationProvider v-slot="{ errors }" name="pwd" rules="required|min:10">
           <v-text-field
             v-model="formData.pwd"
-            type="password"
+            type="Password"
             :error-messages="errors"
             label="password"
             :filled="true"
@@ -113,6 +113,9 @@ export default {
 }
 </script>
 <style scoped>
+h2 {
+  margin-bottom: 18px;
+}
 #login {
   /* background: #e2e1e0; */
   width: 100vw;
@@ -126,15 +129,16 @@ export default {
   background: #fff;
   border-radius: 5px;
   width: 500px;
-  height: 75vh;
+  height: auto;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   opacity: 0.8;
+  padding: 24px;
 }
 
 @media screen and (max-width: 768px) {
   #dataForm {
-    width: 500px;
-    height: 75vh;
+    width: 80vw;
+    height: auto;
   }
 }
 </style>
