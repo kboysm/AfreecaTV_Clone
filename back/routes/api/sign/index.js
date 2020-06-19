@@ -30,7 +30,7 @@ router.post("/in", (req, res, next) => {
 
   let u = {};
   User.findOne({ id })
-    .lean()
+    .lean() //몽구스 반환 객체를 자바스크립트로 만들어줌
     .then((r) => {
       if (!r) throw new Error("존재하지 않는 아이디입니다.");
       const p = crypto
