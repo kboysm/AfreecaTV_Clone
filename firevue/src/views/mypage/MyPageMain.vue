@@ -1,11 +1,8 @@
 <template>
   <div id="mypageMain">
-    My Page Main
-    {{mypageNav}}
-    <br />
     <Profile v-show="mypageNav[0]" />
-    <OrderList v-show="mypageNav[1]" />
-    <ShoppingCart v-show="mypageNav[2]" />
+    <ShoppingCart v-show="mypageNav[1]" />
+    <OrderList v-show="mypageNav[2]" />
   </div>
 </template>
 <script>
@@ -28,5 +25,7 @@ export default {
   width: 70vw;
   height: 80vh;
   display: flex;
+  flex-direction: row;
+  padding: 0;
 }
 </style>
