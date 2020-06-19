@@ -8,8 +8,8 @@
   </div>
 </template>
 <script>
-import MypageMain from "./MyPageMain";
-import MypageNav from "./MyPageNav";
+import MypageMain from "./MyPageMain"
+import MypageNav from "./MyPageNav"
 export default {
   components: {
     MypageNav,
@@ -18,14 +18,14 @@ export default {
   data() {
     return {
       mypageNav: [0, 0, 0]
-    };
+    }
   },
   methods: {
     viewList(item) {
-      this.mypageNav = item;
+      this.mypageNav = item
     }
   }
-};
+}
 </script>
 <style scoped>
 #mypage {

@@ -6,9 +6,9 @@
   </div>
 </template>
 <script>
-import Profile from "@/components/mypage/Profile.vue";
-import OrderList from "@/components/mypage/OrderList.vue";
-import ShoppingCart from "@/components/mypage/ShoppingCart.vue";
+import Profile from "@/components/mypage/Profile.vue"
+import OrderList from "@/components/mypage/OrderList.vue"
+import ShoppingCart from "@/components/mypage/ShoppingCart.vue"
 export default {
   props: ["mypageNav"],
   components: {
@@ -16,7 +16,7 @@ export default {
     ShoppingCart,
     OrderList
   }
-};
+}
 </script>
 <style scoped>
 #mypageMain {
@@ -24,8 +24,6 @@ export default {
   border: 1px solid black;
   width: 70vw;
   height: 80vh;
-  display: flex;
-  flex-direction: row;
-  padding: 0;
+  /* display: flex; */
 }
 </style>

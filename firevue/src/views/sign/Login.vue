@@ -1,19 +1,10 @@
 <template>
   <div id="login">
-    <ValidationObserver
-      ref="observer"
-      v-slot="{ invalid }"
-      tag="form"
-      @submit.prevent="submit()"
-    >
+    <ValidationObserver ref="observer" v-slot="{ invalid }" tag="form" @submit.prevent="submit()">
       <form id="dataForm">
         <h2>로그인</h2>
 
-        <ValidationProvider
-          v-slot="{ errors }"
-          name="id"
-          rules="required|max:20|min:6"
-        >
+        <ValidationProvider v-slot="{ errors }" name="id" rules="required|max:20|min:6">
           <v-text-field
             v-model="formData.id"
             :counter="20"
@@ -24,11 +15,7 @@
             :rounded="true"
           ></v-text-field>
         </ValidationProvider>
-        <ValidationProvider
-          v-slot="{ errors }"
-          name="pwd"
-          rules="required|min:10"
-        >
+        <ValidationProvider v-slot="{ errors }" name="pwd" rules="required|min:10">
           <v-text-field
             v-model="formData.pwd"
             type="Password"
@@ -47,63 +34,63 @@
   </div>
 </template>
 <script>
-import { required, max, min } from "vee-validate/dist/rules";
+import { required, max, min } from "vee-validate/dist/rules"
 import {
   extend,
   ValidationObserver,
   ValidationProvider,
-  setInteractionMode,
-} from "vee-validate";
+  setInteractionMode
+} from "vee-validate"
 
-setInteractionMode("eager");
+setInteractionMode("eager")
 
 extend("required", {
   ...required,
-  message: "{_field_} can not be empty",
-});
+  message: "{_field_} can not be empty"
+})
 
 extend("max", {
   ...max,
-  message: "{_field_} may not be greater than {length} characters",
-});
+  message: "{_field_} may not be greater than {length} characters"
+})
 extend("min", {
   ...min,
-  message: "{_field_} may not be greater than {length} characters",
-});
+  message: "{_field_} may not be greater than {length} characters"
+})
 
 export default {
   components: {
     ValidationProvider,
-    ValidationObserver,
+    ValidationObserver
   },
   data() {
     return {
       formData: {
         id: "",
         pwd: "",
-        remember: true,
-      },
-    };
+        remember: true
+      }
+    }
   },
   methods: {
     async submit() {
-      const valid = await this.$refs.observer.validate(); // boolean형으로 validate를 통과 여부 확인
+      const valid = await this.$refs.observer.validate() // boolean형으로 validate를 통과 여부 확인
       if (valid) {
-        this.$axios.post("/api/sign/in", this.formData).then((r) => {
-          if (!r.data.success) return console.error(r.data.msg);
-          localStorage.setItem("token", r.data.token);
-          this.$store.commit("getToken", r.data.user);
-          this.$router.push("/");
-        });
+        this.$axios.post("/api/sign/in", this.formData).then(r => {
+          if (!r.data.success) return console.error(r.data.msg)
+          localStorage.setItem("token", r.data.token)
+          this.$store.commit("getToken", r.data.user)
+          this.$router.push("/")
+        })
       }
     },
     clear() {
-      this.formData.id = "";
-      this.formData.pwd = "";
-      this.$refs.observer.reset();
-    },
-  },
-};
+      this.formData.id = ""
+      this.formData.pwd = ""
+      this.$refs.observer.reset()
+    }
+  }
+}
 </script>
 <style scoped>
 h2 {

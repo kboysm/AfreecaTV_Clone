@@ -47,9 +47,10 @@
           ></v-text-field>
         </ValidationProvider>
         <vue-recaptcha
+          v-if="!formData.response"
           ref="recaptcha"
           :sitekey="$cfg.recaptchaSiteKey"
-          size="invisible"
+          size="visible"
           @verify="onVerify"
           @expired="onExpired"
         ></vue-recaptcha>
@@ -60,34 +61,29 @@
   </div>
 </template>
 <script>
-import { required, email, max, min } from "vee-validate/dist/rules";
+import { required, max, min } from "vee-validate/dist/rules"
 import {
   extend,
   ValidationObserver,
   ValidationProvider,
   setInteractionMode
-} from "vee-validate";
+} from "vee-validate"
 
-setInteractionMode("eager");
+setInteractionMode("eager")
 
 extend("required", {
   ...required,
   message: "{_field_} can not be empty"
-});
+})
 
 extend("max", {
   ...max,
   message: "{_field_} may not be greater than {length} characters"
-});
+})
 extend("min", {
   ...min,
   message: "{_field_} may not be greater than {length} characters"
-});
-
-extend("email", {
-  ...email,
-  message: "Email must be valid"
-});
+})
 
 export default {
   components: {
@@ -103,44 +99,46 @@ export default {
         name: "",
         response: ""
       }
-    };
+    }
   },
   methods: {
     onVerify(r) {
-      this.formData.response = r;
-      this.$refs.recaptcha.reset();
-      this.submit();
+      this.formData.response = r
+      this.$refs.recaptcha.reset()
+      // this.submit()
     },
     onExpired() {
-      this.formData.response = "";
-      this.$refs.recaptcha.reset();
+      this.formData.response = ""
+      this.$refs.recaptcha.reset()
     },
     checkRobot() {
-      if (this.formData.response) this.submit();
-      else this.$refs.recaptcha.execute();
+      if (this.formData.response) this.submit()
+      else this.$refs.recaptcha.execute()
     },
-    async submit() {
-      const valid = await this.$refs.observer.validate(); // boolean형으로 validate를 통과 여부 확인
-      if (valid) {
-        this.$axios
-          .post("/api/register", this.formData)
-          .then(r => {
-            console.log(r);
-          })
-          .catch(e => {
-            console.error(e.message);
-          });
-      }
+
+    submit() {
+      this.$refs.observer
+        .validate()
+        .then(r => {
+          if (!r) throw new Error("모두 기입해주세요")
+          return this.$axios.post("/api/register", this.formData)
+        })
+        .then(r => {
+          if (!r.data.success) throw new Error("서버가 거부했습니다.")
+          console.log("가입 완료 되었습니다.")
+          this.$router.push("/login")
+        })
+        .catch(e => console.log(e.message, "warning"))
     },
     clear() {
-      this.formData.name = "";
-      this.formData.id = "";
-      this.formData.age = 0;
-      this.formData.pwd = "";
-      this.$refs.observer.reset();
+      this.formData.name = ""
+      this.formData.id = ""
+      this.formData.age = 0
+      this.formData.pwd = ""
+      this.$refs.observer.reset()
     }
   }
-};
+}
 </script>
 <style scoped>
 h2 {
