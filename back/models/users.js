@@ -29,4 +29,5 @@ User.findOne({ id: cfg.admin.id })
     .catch(e => {
         console.error(e.message)
     })
+
 module.exports = User
