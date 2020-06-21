@@ -37,6 +37,12 @@ export default {
 </script>
 
 <style>
+a,
+a:visited,
+a:link {
+  text-decoration: none;
+  color: #036;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -47,7 +53,7 @@ export default {
   background-position: center;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
   /* background-size: 150px; */
 }
 body {

@@ -9,39 +9,57 @@
           <th scope="cols">작성일</th>
         </tr>
       </thead>
-      <tbody>
-        <tr v-for="(item,i) in 10" :key="item._id">
+      <tbody id="data-container">
+        <!-- <tr v-for="(item,i) in 10" :key="item._id">
           <th scope="row">
             <a href="#">{{noticeList[i].title}}</a>
           </th>
           <td>{{noticeList[i].content.substring(0,17).concat('..')}}</td>
           <td>{{noticeList[i].writer}}</td>
           <td>{{noticeList[i].createdAt.substring(0,10)}}</td>
-        </tr>
+        </tr>-->
       </tbody>
+      <tfoot id="pagination"></tfoot>
     </table>
-    <div id="pageN" class="text-center">
-      <v-pagination v-model="page" :length="4" circle></v-pagination>
-    </div>
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
-      noticeList: [],
-      pageLength: 0,
-      pageUnit: 10,
-      page: 1
+      noticeList: []
     }
   },
   created() {
     this.$axios("/api/notice")
       .then(r => {
         this.pageLength = r.data.length / this.pageUnit
-        console.log(this.pageLength)
         this.noticeList = r.data
+        return this.noticeList
       })
+      .then(r => {
+        let container = $("#pagination")
+        container.pagination({
+          dataSource: r,
+          callback: function(data, pagination) {
+            var dataHtml = "<tr>"
+
+            $.each(data, function(index, item) {
+              ;(dataHtml += "<th><a href='#'>" + item.title + "</a></th>"),
+                (dataHtml +=
+                  "<td>" +
+                  item.content.substring(0, 17).concat("..") +
+                  "</td>"),
+                (dataHtml += "<td>" + item.writer + "</td>"),
+                (dataHtml +=
+                  "<td>" + item.createdAt.substring(0, 10) + "</td></tr>")
+            })
+
+            $("#data-container").html(dataHtml)
+          }
+        })
+      })
+
       .catch(e => {
         console.error(e)
       })
@@ -55,6 +73,7 @@ a:link {
   text-decoration: none;
   color: #036;
 }
+
 #noticeList {
   display: flex;
   flex-direction: column;
