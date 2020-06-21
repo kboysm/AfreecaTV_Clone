@@ -1,6 +1,9 @@
 <template>
   <div id="noticeList">
     <table class="type09">
+      <caption>
+        <h2>공지사항</h2>
+      </caption>
       <thead>
         <tr>
           <th scope="cols">타이틀</th>
@@ -19,8 +22,8 @@
           <td>{{noticeList[i].createdAt.substring(0,10)}}</td>
         </tr>-->
       </tbody>
-      <tfoot id="pagination"></tfoot>
     </table>
+    <div id="pagination"></div>
   </div>
 </template>
 <script>
@@ -45,7 +48,8 @@ export default {
             var dataHtml = "<tr>"
 
             $.each(data, function(index, item) {
-              ;(dataHtml += "<th><a href='#'>" + item.title + "</a></th>"),
+              ;(dataHtml +=
+                "<th scope='row'><a href='#'>" + item.title + "</a></th>"),
                 (dataHtml +=
                   "<td>" +
                   item.content.substring(0, 17).concat("..") +
@@ -67,13 +71,6 @@ export default {
 }
 </script>
 <style scoped>
-a,
-a:visited,
-a:link {
-  text-decoration: none;
-  color: #036;
-}
-
 #noticeList {
   display: flex;
   flex-direction: column;
@@ -82,6 +79,16 @@ a:link {
   height: 100%;
   margin-top: 12px;
 }
+#pagination {
+  background: #fff;
+  border-radius: 5px;
+  width: 65vw;
+  text-align: center;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  opacity: 0.8;
+  padding: 24px;
+}
+
 table.type09 {
   background: #fff;
   border-radius: 5px;
@@ -102,6 +109,7 @@ table.type09 thead th {
   color: #369;
   border-bottom: 3px solid #036;
 }
+
 table.type09 tbody th {
   width: 350px;
   padding: 10px;
@@ -117,8 +125,5 @@ table.type09 td {
   padding: 10px;
   vertical-align: top;
   border-bottom: 1px solid #ccc;
-}
-#pageN {
-  margin-top: 18px;
 }
 </style>
