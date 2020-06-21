@@ -12,7 +12,7 @@ const noticeSchema = new mongoose.Schema({
 
 const Notice = mongoose.model('Notice', noticeSchema)
 //test data 생성
-// for (let i = 0; i < 30; i++) {
+// for (let i = 0; i < 33; i++) {
 //     const title = 'notice' + i;
 //     const content =
 //         `
