@@ -1,10 +1,12 @@
 <template>
   <div id="noticeList">
     <table class="type09">
-      <caption>
-        <h2>공지사항</h2>
-      </caption>
       <thead>
+        <tr>
+          <th colspan="4">
+            <h2>공지사항</h2>
+          </th>
+        </tr>
         <tr>
           <th scope="cols">타이틀</th>
           <th scope="cols">내용</th>
@@ -31,44 +33,53 @@ export default {
   data() {
     return {
       noticeList: []
+    };
+  },
+  methods: {
+    selectedNoticeAxios() {
+      console.log("selected");
     }
   },
   created() {
     this.$axios("/api/notice")
       .then(r => {
-        this.pageLength = r.data.length / this.pageUnit
-        this.noticeList = r.data
-        return this.noticeList
+        this.pageLength = r.data.length / this.pageUnit;
+        this.noticeList = r.data;
+        return this.noticeList;
       })
       .then(r => {
-        let container = $("#pagination")
+        let container = $("#pagination");
         container.pagination({
           dataSource: r,
           callback: function(data, pagination) {
-            var dataHtml = "<tr>"
+            var dataHtml = "<tr>";
 
             $.each(data, function(index, item) {
-              ;(dataHtml +=
-                "<th scope='row'><a href='#'>" + item.title + "</a></th>"),
+              (dataHtml +=
+                "<th scope='row'><a href='/notice/" +
+                item._id +
+                "'>" +
+                item.title +
+                "</a></th>"),
                 (dataHtml +=
                   "<td>" +
                   item.content.substring(0, 17).concat("..") +
                   "</td>"),
                 (dataHtml += "<td>" + item.writer + "</td>"),
                 (dataHtml +=
-                  "<td>" + item.createdAt.substring(0, 10) + "</td></tr>")
-            })
+                  "<td>" + item.createdAt.substring(0, 10) + "</td></tr>");
+            });
 
-            $("#data-container").html(dataHtml)
+            $("#data-container").html(dataHtml);
           }
-        })
+        });
       })
 
       .catch(e => {
-        console.error(e)
-      })
+        console.error(e);
+      });
   }
-}
+};
 </script>
 <style scoped>
 #noticeList {

@@ -15,5 +15,15 @@ router.get('/', (req, res) => {
     // console.log(noticeList)
     // res.send(noticeList)
 })
+router.get('/:_id', (req, res) => {
+    const { _id } = req.params
 
+    Notice.findById({ _id }).exec((err, docs) => {
+        if (err) return res.send(err);
+        docs.views++;
+        docs.save();
+        res.send(docs);
+    })
+
+})
 module.exports = router;

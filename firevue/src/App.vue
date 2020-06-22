@@ -24,16 +24,16 @@ export default {
   data() {
     return {
       backInsect: ""
-    }
+    };
   },
   methods: {
     signOut() {
       // localStorage.removeItem('token')
-      this.$store.commit("delToken")
-      this.$router.push("/").catch(() => {})
+      this.$store.commit("delToken");
+      this.$router.push("/").catch(() => {});
     }
   }
-}
+};
 </script>
 
 <style>
@@ -42,6 +42,7 @@ a:visited,
 a:link {
   text-decoration: none;
   color: #036;
+  cursor: pointer;
 }
 
 #app {
