@@ -7,7 +7,14 @@ const noticeSchema = new mongoose.Schema({
     writer: { type: String, default: 'admin' },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
-    views: { type: Number, default: 0 }
+    views: { type: Number, default: 0 },
+    comments: [
+        {
+            author: String,
+            content: String,
+            comment_date: { type: Date, default: Date.now }
+        }
+    ]
 })
 
 

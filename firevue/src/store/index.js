@@ -1,12 +1,11 @@
 import Vue from "vue";
 import Vuex from "vuex";
-
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
     token: localStorage.getItem("token"),
-    user: {},
+    user: JSON.parse(localStorage.getItem("user")),
   },
   mutations: {
     getToken(state, user) {
@@ -25,4 +24,5 @@ export default new Vuex.Store({
   },
   actions: {},
   modules: {},
+
 });

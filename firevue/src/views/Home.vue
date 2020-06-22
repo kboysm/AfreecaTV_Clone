@@ -1,8 +1,8 @@
 <template>
-  <div class="home">Home</div>
+  <div class="home">{{$store.state.user.name}}</div>
 </template>
 
 <script>
 // @ is an alias to /src
-export default {}
+export default {};
 </script>

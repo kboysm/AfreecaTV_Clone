@@ -26,4 +26,9 @@ router.get('/:_id', (req, res) => {
     })
 
 })
+router.post('/comment/writer', (req, res) => {
+    const comment = req.body.comment;
+    const author = req.body.author;
+    console.log(comment, author);
+})
 module.exports = router;
