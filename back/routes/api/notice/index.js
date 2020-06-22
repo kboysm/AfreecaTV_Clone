@@ -27,8 +27,16 @@ router.get('/:_id', (req, res) => {
 
 })
 router.post('/comment/writer', (req, res) => {
+    const _id = req.body._id;
     const comment = req.body.comment;
     const author = req.body.author;
-    console.log(comment, author);
+    console.log(_id, comment, author);
+    Notice.findById({ _id }).exec((err, docs) => {
+        if (err) return res.send(err);
+        console.log(docs)
+        docs.comments.push({ author, content: comment })
+        docs.save()
+        res.send(docs.comments)
+    })
 })
 module.exports = router;

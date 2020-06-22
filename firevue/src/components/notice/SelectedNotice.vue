@@ -17,17 +17,25 @@
       <br />
       <div id="comments">
         <h3>덧글목록</h3>
-        <v-list-item two-line>
+
+        <v-list-item v-for="item in selectedNotice.comments" :key="item._id" two-line>
           <v-list-item-content>
-            <v-list-item-title>점검을 너무 자주하시는거 아닌가요? 장사하기 싫어요?</v-list-item-title>
-            <v-list-item-subtitle>Secondary text</v-list-item-subtitle>
+            <v-list-item-title>{{item.content}}</v-list-item-title>
+            <v-list-item-subtitle>{{item.author}}.{{new Date(item.comment_date).toLocaleDateString(undefined, options)}}</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
         <div>
           <form>
             <label>{{$store.state.user.id }}:</label>
-            <input style="border:1px solid black; border-radius:5px;" type="text" />
-            <input type="submit" value="작성" />
+            <input hidden="hidden" />
+            <input
+              v-model="comment"
+              @keypress.enter="submitEnter"
+              style="border:1px solid black; border-radius:5px;"
+              type="text"
+            />
+
+            <!-- <input type="submit" value="제출" /> -->
           </form>
         </div>
       </div>
@@ -48,6 +56,23 @@ export default {
         day: "numeric"
       }
     };
+  },
+  methods: {
+    submitEnter() {
+      console.log(this.comment);
+      this.$axios
+        .post("/api/notice/comment/writer", {
+          _id: this._id,
+          comment: this.comment,
+          author: this.$store.state.user.id
+        })
+        .then(r => {
+          this.selectedNotice.comments = r.data;
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
   },
   created() {
     this._id = this.$route.params.selectedNotice;
