@@ -14,6 +14,7 @@ export default new Vuex.Store({
     },
     delToken(state) {
       localStorage.removeItem("token");
+      localStorage.removeItem("user");
       state.token = null;
       state.user = {
         name: "일반사용자",

@@ -34,29 +34,29 @@
   </div>
 </template>
 <script>
-import { required, max, min } from "vee-validate/dist/rules";
+import { required, max, min } from "vee-validate/dist/rules"
 import {
   extend,
   ValidationObserver,
   ValidationProvider,
   setInteractionMode
-} from "vee-validate";
+} from "vee-validate"
 
-setInteractionMode("eager");
+setInteractionMode("eager")
 
 extend("required", {
   ...required,
   message: "{_field_} can not be empty"
-});
+})
 
 extend("max", {
   ...max,
   message: "{_field_} may not be greater than {length} characters"
-});
+})
 extend("min", {
   ...min,
   message: "{_field_} may not be greater than {length} characters"
-});
+})
 
 export default {
   components: {
@@ -70,29 +70,29 @@ export default {
         pwd: "",
         remember: true
       }
-    };
+    }
   },
   methods: {
     async submit() {
-      const valid = await this.$refs.observer.validate(); // boolean형으로 validate를 통과 여부 확인
+      const valid = await this.$refs.observer.validate() // boolean형으로 validate를 통과 여부 확인
       if (valid) {
         this.$axios.post("/api/sign/in", this.formData).then(r => {
-          if (!r.data.success) return console.error(r.data.msg);
-          localStorage.setItem("token", r.data.token);
-          localStorage.setItem("user", JSON.stringify(r.data.user));
-          this.$store.commit("getToken", r.data.user);
+          if (!r.data.success) return console.error(r.data.msg)
+          localStorage.setItem("token", r.data.token)
+          localStorage.setItem("user", JSON.stringify(r.data.user))
+          this.$store.commit("getToken", r.data.user)
 
-          this.$router.push("/");
-        });
+          this.$router.push("/")
+        })
       }
     },
     clear() {
-      this.formData.id = "";
-      this.formData.pwd = "";
-      this.$refs.observer.reset();
+      this.formData.id = ""
+      this.formData.pwd = ""
+      this.$refs.observer.reset()
     }
   }
-};
+}
 </script>
 <style scoped>
 h2 {

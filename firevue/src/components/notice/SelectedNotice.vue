@@ -26,7 +26,7 @@
         </v-list-item>
         <div>
           <form>
-            <label>{{$store.state.user.id }}:</label>
+            <label>{{userId }}</label>
             <input hidden="hidden" />
             <input
               v-model="comment"
@@ -55,42 +55,54 @@ export default {
         month: "long",
         day: "numeric"
       }
-    };
+    }
   },
   methods: {
     submitEnter() {
-      console.log(this.comment);
-      this.$axios
-        .post("/api/notice/comment/writer", {
-          _id: this._id,
-          comment: this.comment,
-          author: this.$store.state.user.id
-        })
-        .then(r => {
-          this.selectedNotice.comments = r.data;
-        })
-        .catch(e => {
-          console.error(e);
-        });
+      if (!this.$store.state.token) {
+        this.$router.push("/login")
+        return
+      } else {
+        this.$axios
+          .post("/api/notice/comment/writer", {
+            _id: this._id,
+            comment: this.comment,
+            // author: this.$store.state.user.id
+            author: this.userId
+          })
+          .then(r => {
+            this.selectedNotice.comments = r.data
+          })
+          .catch(e => {
+            console.error(e)
+          })
+      }
+    }
+  },
+  computed: {
+    userId() {
+      const userName = localStorage.getItem("user")
+
+      return userName ? JSON.parse(localStorage.getItem("user")).id : "비로그인"
     }
   },
   created() {
-    this._id = this.$route.params.selectedNotice;
+    this._id = this.$route.params.selectedNotice
     this.$axios
       .get("/api/notice/".concat(this._id))
       .then(r => {
-        this.selectedNotice = r.data;
+        this.selectedNotice = r.data
       })
       .catch(e => {
-        console.error(e);
-      });
+        console.error(e)
+      })
   }
-};
+}
 </script>
 <style lang="scss" scoped>
 .container {
   width: 100%;
-  height: 80vh;
+  height: auto;
   display: flex;
   justify-content: center;
 }
@@ -98,6 +110,7 @@ export default {
   background: #fff;
   border-radius: 5px;
   width: 65vw;
+  height: auto;
   text-align: center;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   opacity: 0.8;

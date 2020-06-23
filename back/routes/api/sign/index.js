@@ -32,6 +32,7 @@ router.post("/in", (req, res, next) => {
   User.findOne({ id })
     .lean() //몽구스 반환 객체를 자바스크립트로 만들어줌
     .then((r) => {
+      console.log(r)
       if (!r) throw new Error("존재하지 않는 아이디입니다.");
       const p = crypto
         .scryptSync(pwd, r._id.toString(), 64, { N: 1024 })
