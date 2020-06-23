@@ -1,13 +1,15 @@
 <template>
   <div class="card">
-    <img src="http://localhost:3000/images/4.jpg" art="testImages" />
-    <p>ProductName</p>
-    <p>test productDescription</p>
-    <p style="font-size:5px; color:red;">category : prog</p>
+    <img :src="product.productImage" art="testImages" />
+    <p>{{product.ProductName}}</p>
+    <p>{{product.productDescription}}</p>
+    <p style="font-size:5px; color:red;">category : {{product.category}}</p>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  props: ["product"]
+};
 </script>
 <style scoped>
 .card {
